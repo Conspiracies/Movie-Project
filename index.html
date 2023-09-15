@@ -65,7 +65,7 @@
                 onchange="searchMovie(event)"
               />
               <div class="search__icon">
-                <i class="fas fa-search" onclick="searchMovie(event)"></i>
+                <i class="fas fa-search" onclick="searchMovie()"></i>
               </div>
             </div>
           </div>
@@ -77,73 +77,104 @@
       <div class="row">
         <div class="container">
           <h1 class="movie__header">Trending now:</h1>
+          <div class="movie__filter">
+            <select id="sort" onchange="sortMovieRelease(event)">
+              <option value selected>Sort</option>
+              <option value="new_to_old">Most_Recent</option>
+              <option value="old_to_new">Oldest</option>
+            </select>
+          </div>
           <div class="movies__wrapper">
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/oppenheimer jpeg.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/oppenheimer jpeg.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Oppenheimer</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/barbie jpeg.jpg" alt="" class="movie__img">
+                <img src="./assets/barbie jpeg.jpg" alt="" class="movie__img" />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Barbie</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/no hard feelings jpeg.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/no hard feelings jpeg.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">No Hard Feelings</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/blue beetle jpeg.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/blue beetle jpeg.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Blue Beetle</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/gran turismo jpeg.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/gran turismo jpeg.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Gran Turismo</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/guardian of galaxy poster img.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/guardian of galaxy poster img.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Guardians of the Galaxy Vol. 3</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/meg 2 jpeg.jpg" alt="" class="movie__img">
+                <img src="./assets/meg 2 jpeg.jpg" alt="" class="movie__img" />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">The Meg 2</h1>
                 <h1 class="movie__release"></h1>
               </div>
             </div>
-            <div class="movie">
+            <div class="movie click">
               <figure class="movie__img--wrapper">
-                <img src="./assets/heart of stone jpeg.jpg" alt="" class="movie__img">
+                <img
+                  src="./assets/heart of stone jpeg.jpg"
+                  alt=""
+                  class="movie__img"
+                />
               </figure>
               <div class="movie__info">
                 <h1 class="movie__title">Heart of Stone</h1>
@@ -161,7 +192,9 @@
           <h1 class="footer__title">
             The best place to browse your favourite movies.
           </h1>
-          <p class="footer__copyright">Copyright © <span class="blue">Jareer Ghany</span></p>
+          <p class="footer__copyright">
+            Copyright © <span class="blue">Jareer Ghany</span>
+          </p>
         </div>
         <ul class="footer__social--links">
           <li class="footer__link"><i class="fa-brands fa-instagram"></i></li>

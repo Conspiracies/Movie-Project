@@ -3,21 +3,45 @@
 // // api 2 https://www.omdbapi.com/?i=tt3896198&apikey=b156cbc
 
 const moviesListEl = document.querySelector(".movies__wrapper")
-const search = localStorage.getItem("search")
+const movieHead = document.querySelector(".movie__header")
+const loadingSpinEl = document.querySelector(".loader")
 
-async function renderMovies () {
-    const movies = await fetch (`https://www.omdbapi.com/?i=tt3896198&apikey=b156cbc&s=${search}`);
+async function renderMovies (sort) {
+
+    setTimeout(() => {
+        loadingSpinEl.classList += " .movie__loader"
+    }, 1200);
+    const movies = await fetch (`https://www.omdbapi.com/?i=tt3896198&apikey=b156cbc&s=${title}`);
     const movieData = await movies.json()
     console.log(movieData);
-    moviesListEl.innerHTML = movieData.Search.map( movie => movieHTML(movie)).join("")
+    const movieDataResult = movieData.Search.slice(0,8);
+
+    if (sort === 'new_to_old') {
+        movieDataResult.sort((a, b) => b.Year - a.Year);
+    } else if (sort === 'old_to_new') {
+        movieDataResult.sort((a, b) => a.Year - b.Year);
+    }
+
+    console.log(movieDataResult);
+
+    setTimeout(() => {
+        moviesListEl.innerHTML = movieDataResult.map((movie) => movieHTML(movie)).join("");
+        loadingSpinEl.classList.remove(".movies__loader")
+        movieHead.innerHTML = `Results for "${title}:"`
+    }, 1200);
+    // moviesListEl.innerHTML = movieData.Search.map( movie => movieHTML(movie)).join("")
 }
 
 renderMovies();
 
 function searchMovie (event) {
-    const search = event.target.value;
-    localStorage.setItem("search", search)
+    title = event.target.value;
+    event.preventDefault();
     renderMovies();
+}
+
+function sortMovieRelease (event) {
+    renderMovies(event.target.value);
 }
 
 function movieHTML (movie) {
