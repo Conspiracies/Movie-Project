@@ -58,3 +58,11 @@ function showMovieInfo (imdbID) {
     window.location.href = `${window.location.origin}/movie.html`;
     localStorage.setItem("imdbID", imdbID);
 }
+
+function openMenu() {
+    document.body.classList += " menu--open"
+}
+
+function closeMenu () {
+    document.body.classList.remove("menu--open")
+}

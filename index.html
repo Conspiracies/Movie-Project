@@ -41,6 +41,26 @@
                   </button>
                 </li>
               </ul>
+              <button class="menu--btn click" onclick="openMenu()">
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="menu__backdrop">
+                <button class="menu--btn menu--close click" onclick="closeMenu()">
+                  <i class="fas fa-times"></i>
+                </button>
+                <ul class="menu__links">
+                  <li class="menu__list click"><a href="#" class="menu__link"></a>About</li>
+                  <li class="menu__list click"><a href="#" class="menu__link"></a>Movies</li>
+                  <li class="menu__list click">
+                    <a href="#" class="menu__link"></a
+                    ><button
+                      class="nav__link nav__link--btn click nav__link--hover--btn menu__link--primary"
+                    >
+                      Contact
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
@@ -57,6 +77,15 @@
               Get started today by simply searching for the movie you want to
               watch now or later!
             </h2>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <section id="movies">
+      <div class="row">
+        <div class="container">
+          <div class="search-and-filter">
             <div class="input__wrapper">
               <input
                 class="search__input"
@@ -68,22 +97,19 @@
                 <i class="fas fa-search" onclick="searchMovie()"></i>
               </div>
             </div>
+            <div class="movie__filter">
+              <select
+                id="sort"
+                class="click"
+                onchange="sortMovieRelease(event)"
+              >
+                <option value selected>Sort</option>
+                <option value="new_to_old">Most_Recent</option>
+                <option value="old_to_new">Oldest</option>
+              </select>
+            </div>
           </div>
-        </div>
-      </header>
-    </section>
-
-    <section id="movies">
-      <div class="row">
-        <div class="container">
           <h1 class="movie__header">Trending now:</h1>
-          <div class="movie__filter">
-            <select id="sort" class="click" onchange="sortMovieRelease(event)">
-              <option value selected>Sort</option>
-              <option value="new_to_old">Most_Recent</option>
-              <option value="old_to_new">Oldest</option>
-            </select>
-          </div>
           <div class="movies__wrapper">
             <div class="movie click">
               <figure class="movie__img--wrapper">
