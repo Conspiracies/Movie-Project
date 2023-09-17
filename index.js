@@ -8,10 +8,7 @@ const loadingSpinEl = document.querySelector(".loader")
 
 async function renderMovies (sort) {
 
-    setTimeout(() => {
-        loadingSpinEl.classList += " .movie__loader"
-    }, 1200);
-    const movies = await fetch (`https://www.omdbapi.com/?i=tt3896198&apikey=b156cbc&s=${title}`);
+    const movies = await fetch (`https://www.omdbapi.com/?&apikey=b156cbc&s=${title}`);
     const movieData = await movies.json()
     console.log(movieData);
     const movieDataResult = movieData.Search.slice(0,8);
@@ -26,7 +23,6 @@ async function renderMovies (sort) {
 
     setTimeout(() => {
         moviesListEl.innerHTML = movieDataResult.map((movie) => movieHTML(movie)).join("");
-        loadingSpinEl.classList.remove(".movies__loader")
         movieHead.innerHTML = `Results for "${title}:"`
     }, 1200);
     // moviesListEl.innerHTML = movieData.Search.map( movie => movieHTML(movie)).join("")
@@ -45,7 +41,8 @@ function sortMovieRelease (event) {
 }
 
 function movieHTML (movie) {
-    return ` <div class="movie">
+    return `
+    <div class="movie click" onclick = "showMovieInfo(${movie.imdbID})">
     <figure class="movie__img--wrapper">
       <img src="${movie.Poster}" alt="" class="movie__img">
     </figure>
@@ -53,5 +50,11 @@ function movieHTML (movie) {
       <h1 class="movie__title">${movie.Title}</h1>
       <h1 class="movie__release">${movie.Year}</h1>
     </div>
-  </div>`
+  </div>
+  `;
+}
+
+function showMovieInfo (imdbID) {
+    window.location.href = `${window.location.origin}/movie.html`;
+    localStorage.setItem("imdbID", imdbID);
 }

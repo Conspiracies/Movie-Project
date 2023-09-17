@@ -213,7 +213,7 @@ header{
     right: 80px;
     top: 80px;
     padding: 20px 16px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     outline: none;
 }
@@ -326,6 +326,41 @@ footer{
 
 .movie__info--left{
     padding-left: 24px;
+}
+
+.movie__options{
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn__now,
+.btn__add{
+    padding: 12px 20px;
+    border-radius: 50px;
+    border:none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 300ms ease;
+}
+
+.btn__add{
+    background-color: rgb(47, 250, 47);
+}
+
+.btn__now{
+    background-color: rgb(184, 11, 184);
+}
+
+.btn__now:hover,
+.btn__add:hover{
+    transform: scale(1.04);
+    filter:hue-rotate(90deg);
+}
+
+.btn__add:active,
+.btn__now:active{
+    transform:scale(0.85);
 }
 
 .movie--figure{
