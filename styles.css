@@ -255,7 +255,7 @@ header{
     position: relative;
 }
 
-.search__input{
+#search__input{
     padding: 24px 80px;
     border: none;
     border-radius: 999px;
@@ -312,13 +312,6 @@ header{
     outline: none;
 }
 
-.movies__loader{
-    margin-top: 40px;
-    font-size: 80px;
-    color: #00c4cc;
-    animation: rotation 800ms infinite linear;
-    display: none;
-}
 
 @keyframes rotation {
     0%{
@@ -386,6 +379,7 @@ footer{
     color: white;
     font-size: 24px;
     font-weight: 400;
+    text-align:center;
 }
 
 
@@ -496,5 +490,33 @@ footer{
     .nav__links{
         display: none;
     }
+    .movie{
+        width:calc(100%/3);
+    }
 }
 
+@media(max-width:600px){
+    .search-and-filter{
+        display: flex;
+        flex-direction: column;
+    }
+    .input__wrapper{
+        padding-bottom: 20px ;
+    }
+}
+
+@media(max-width: 540px){
+    .movie{
+        width: calc(100%/2);
+    }
+    .header__title,
+    .header__subtitle{
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 400px){
+    .movie{
+        width:100%;
+    }
+}
